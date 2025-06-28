@@ -1,5 +1,7 @@
 {
-  "installCommand": "pnpm install --legacy-peer-deps",
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "dist"
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "env": {
+    "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
+  }
 }
