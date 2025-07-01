@@ -26,7 +26,11 @@ const SummaryCard = () => {
     const year = selectedDate.getFullYear();
 
     try {
-      const res = await fetch(`${api_url}/summarize?month=${month}&year=${year}`);
+      const res = await fetch(`${api_url}/summarize?month=${month}&year=${year}`, {
+        method: "GET",
+        headers: {
+          "ngrok-skip-browser-warning": "true"
+        },}) ;
       const data = await res.json();
       setSummary(data.summary);
     } catch (err) {
