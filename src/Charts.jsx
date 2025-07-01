@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
 import PageWrapper from "./components/PageWrapper";
+const api_url = import.meta.env.VITE_API_URL;
 
 export default function VisualizationPage() {
   const [comments, setComments] = useState([]);
   const [sentimentFilter, setSentimentFilter] = useState("All");
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/get_comments")
+    fetch("${api_url}/get_comments")
       .then((res) => res.json())
       .then((data) => setComments(data))
       .catch((err) => console.error("Error:", err));

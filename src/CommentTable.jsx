@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUrgency } from "./Urgency";
+const api_url = import.meta.env.VITE_API_URL;
 
 export default function CommentTable() {
   const [comments, setComments] = useState([]);
@@ -8,7 +9,7 @@ export default function CommentTable() {
 
   useEffect(() => {
     // Hanya fetch sekali saat komponen pertama kali dimount
-    fetch("http://127.0.0.1:8000/get_comments")
+    fetch("${api_url}/get_comments")
       .then((res) => res.json())
       .then((data) => {
         const sorted = data.sort(

@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { registerLocale } from "react-datepicker";
 import id from "date-fns/locale/id";
+const api_url = import.meta.env.VITE_API_URL;
 
 registerLocale("id", id);
 
@@ -25,7 +26,7 @@ const SummaryCard = () => {
     const year = selectedDate.getFullYear();
 
     try {
-      const res = await fetch(`http://localhost:8000/summarize?month=${month}&year=${year}`);
+      const res = await fetch(`${api_url}/summarize?month=${month}&year=${year}`);
       const data = await res.json();
       setSummary(data.summary);
     } catch (err) {
