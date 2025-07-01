@@ -8,7 +8,7 @@ export default function VisualizationPage() {
   const [sentimentFilter, setSentimentFilter] = useState("All");
 
   useEffect(() => {
-    fetch("${api_url}/get_comments", {
+    fetch(`${api_url}/get_comments`, {
         method: "GET",
         headers: {
           "ngrok-skip-browser-warning": "true"
