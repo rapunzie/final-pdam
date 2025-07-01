@@ -9,7 +9,12 @@ export default function CommentTable() {
 
   useEffect(() => {
     // Hanya fetch sekali saat komponen pertama kali dimount
-    fetch(`${api_url}/get_comments`)
+      fetch(`${api_url}/get_comments`, {
+        method: "GET",
+        headers: {
+          "ngrok-skip-browser-warning": "true"
+        },
+      })
       .then((res) => res.json())
       .then((data) => {
         const sorted = data.sort(
