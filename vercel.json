@@ -1,6 +1,9 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "rewrites": [
+    {"source": "/(.*)", "destination": "/" }
+  ],
   "env": {
     "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
   }
